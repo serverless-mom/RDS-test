@@ -1,0 +1,12 @@
+{
+  "name": "seed-database",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "cfn-custom-resource": "^4.0.2",
+    "clone": "^2.1.1",
+    "knex": "^0.14.6",
+    "knexfile": "file:../../../knexfile",
+    "mysql": "^2.15.0"
+  }
+}

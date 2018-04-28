@@ -1,0 +1,9 @@
+{
+  "name": "list-accounts",
+  "version": "1.0.0",
+  "dependencies": {
+    "knex": "^0.14.6",
+    "knexfile": "file:../../../knexfile",
+    "mysql": "^2.15.0"
+  }
+}

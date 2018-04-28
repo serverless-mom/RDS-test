@@ -1,100 +1,78 @@
 {
   "nodes": [
     {
-      "id": "8159056",
+      "id": "c2463709",
+      "type": "database",
+      "x": 650,
+      "y": 200,
+      "width": 100,
+      "height": 30,
+      "name": "Accounts",
+      "engine": "mariadb",
+      "version": "10.1",
+      "storageSize": 5,
+      "backupRetentionPeriod": 0,
+      "instanceType": "db.t2.micro",
+      "rootPassword": "${config.dbPassword}",
+      "failover": false,
+      "skipNameResolution": false
+    },
+    {
+      "id": "5cc4816b",
       "type": "function",
-      "name": "Hello!",
-      "outputs": 1,
-      "memorySize": 128,
-      "timeout": 30,
-      "runtime": "nodejs8",
-      "location": "inline",
-      "noerr": true,
-      "x": 400,
-      "y": 185,
-      "wires": [
-        []
-      ]
-    },
-    {
-      "id": "3b121493",
-      "type": "function",
-      "name": "Echo",
-      "outputs": 1,
-      "memorySize": 128,
-      "timeout": 30,
-      "runtime": "nodejs8",
-      "location": "inline",
-      "noerr": true,
-      "x": 400,
-      "y": 285,
-      "wires": [
-        []
-      ]
-    },
-    {
-      "id": "fabebabd",
-      "type": "http",
-      "x": 197.5,
-      "y": 235,
-      "width": 185,
-      "height": 260
-    },
-    {
-      "id": "849da5a5",
-      "type": "restApiEndpoint",
-      "x": 185,
-      "y": 185,
-      "name": "",
-      "path": "/",
-      "method": "GET",
-      "wires": [
-        [
-          "8159056"
-        ]
-      ]
-    },
-    {
-      "id": "671b66da",
-      "type": "restApiEndpoint",
-      "x": 195,
-      "y": 285,
-      "name": "",
-      "path": "/{message}",
-      "method": "GET",
-      "wires": [
-        [
-          "3b121493"
-        ]
-      ]
-    },
-    {
-      "id": "5d3693ef",
-      "type": "errors",
-      "x": 200,
-      "y": 400,
-      "wires": [
-        [
-          "79717f2d"
-        ]
-      ]
-    },
-    {
-      "id": "79717f2d",
-      "type": "function",
-      "x": 410,
-      "y": 400,
-      "name": "LogErrors",
+      "x": 370,
+      "y": 200,
+      "width": 100,
+      "height": 30,
+      "name": "List Accounts",
       "outputs": 1,
       "memorySize": 3008,
       "timeout": 30,
       "runtime": "nodejs8",
       "location": "inline",
-      "envVars": {},
+      "envVars": {
+        "CONNECTION": "production",
+        "DB_PASSWORD": "${config.dbPassword}"
+      },
       "entryPoint": "",
       "wires": [
-        []
+        [
+          "c2463709"
+        ]
       ]
+    },
+    {
+      "id": "63ced5ec",
+      "type": "function",
+      "x": 370,
+      "y": 270,
+      "width": 100,
+      "height": 30,
+      "name": "Seed Database",
+      "outputs": 1,
+      "memorySize": 3008,
+      "timeout": 30,
+      "runtime": "nodejs8",
+      "location": "inline",
+      "envVars": {
+        "CONNECTION": "production",
+        "DB_PASSWORD": "${config.dbPassword}"
+      },
+      "entryPoint": "",
+      "wires": [
+        [
+          "c2463709"
+        ]
+      ]
+    },
+    {
+      "id": "b2e989b8",
+      "type": "custom",
+      "x": 370,
+      "y": 355,
+      "width": 100,
+      "height": 30,
+      "name": "Trigger Seed Database"
     }
   ]
 }
