@@ -13,7 +13,7 @@
       "storageSize": 5,
       "backupRetentionPeriod": 0,
       "instanceType": "db.t2.micro",
-      "rootPassword": "movieReference",
+      "rootPassword": "movieref",
       "failover": false,
       "skipNameResolution": false
     },
@@ -72,7 +72,8 @@
       "y": 355,
       "width": 100,
       "height": 30,
-      "name": "Trigger Seed Database"
+      "name": "Trigger Seed Database",
+      "implements": "none"
     }
   ]
 }
