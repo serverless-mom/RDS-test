@@ -2,6 +2,7 @@
   "name": "list-accounts",
   "version": "1.0.0",
   "dependencies": {
+    "@iopipe/iopipe": "^1.8.0",
     "knex": "^0.14.6",
     "knexfile": "file:../../../knexfile",
     "mysql": "^2.15.0"
